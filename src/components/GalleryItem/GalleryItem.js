@@ -7,7 +7,7 @@ class GalleryItem extends Component {
 
   handleClick = () => {
     this.setState({
-      clicked: true,
+      clicked: !this.state.clicked,
     });
     console.log('button clicked');
   };
@@ -16,9 +16,11 @@ class GalleryItem extends Component {
     if (this.state.clicked === true) {
       return (
         <div>
-          <p className="descriptionText">{this.props.item.description}</p>
+          <p onClick={this.handleClick} className="descriptionText">
+            {this.props.item.description}
+          </p>
           <button onClick={this.handleClick} type="button">
-            Love This!
+            Love It!
           </button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
@@ -31,7 +33,7 @@ class GalleryItem extends Component {
             alt={this.props.item.description}
             src={this.props.item.path}
           ></img>
-          <button type="button">Love This</button>
+          <button type="button">Love It!</button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
       );
