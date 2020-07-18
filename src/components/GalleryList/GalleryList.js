@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 class GalleryList extends Component {
   render() {
@@ -6,9 +7,7 @@ class GalleryList extends Component {
       <div>
         {this.props.gallery.map((item) => (
           <div className="galleryDiv" key={item.id}>
-            <img alt={item.description} src={item.path}></img>
-            <button type="button">Love This!</button>
-            <div className="likesDiv">{item.likes}</div>
+            <GalleryItem item={item} />
           </div>
         ))}
       </div>
