@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
-// import GalleryItem from '../GalleryItem/GalleryItem';
-import Axios from 'axios';
+import axios from 'axios';
+import GalleryForm from '../GalleryForm/GalleryForm';
 
 class App extends Component {
   state = {
@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   getGallery() {
-    Axios({
+    axios({
       method: 'GET',
       url: '/gallery',
     })
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   updateLikes = (id) => {
-    Axios({
+    axios({
       method: 'PUT',
       url: `/gallery/like/${id}`,
     })
@@ -43,6 +43,22 @@ class App extends Component {
       });
   };
 
+  postNewImage = (imageData) => {
+    console.log('in postNewImage:', imageData);
+    axios({
+      method: 'POST',
+      url: '/gallery',
+      data: imageData,
+    })
+      .then((response) => {
+        console.log('POST response:', response);
+        this.getGallery();
+      })
+      .catch((error) => {
+        console.log('error with POST', error);
+      });
+  };
+
   render() {
     return (
       <div className="App">
@@ -51,7 +67,7 @@ class App extends Component {
         </header>
         <br />
 
-        {/* {displayGallery} */}
+        <GalleryForm gallery={this.state.gallery} />
         <GalleryList
           gallery={this.state.gallery}
           updateLikes={this.updateLikes}
