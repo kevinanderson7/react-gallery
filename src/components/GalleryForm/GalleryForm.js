@@ -22,6 +22,7 @@ class GalleryForm extends Component {
 
   submitImage = (event) => {
     event.preventDefault();
+    this.props.postNewImage(this.state.newGalleryImage);
     this.setState(
       {
         gallery: [...this.state.gallery, this.state.newGalleryImage],

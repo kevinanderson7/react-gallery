@@ -67,7 +67,10 @@ class App extends Component {
         </header>
         <br />
 
-        <GalleryForm gallery={this.state.gallery} />
+        <GalleryForm
+          postNewImage={this.postNewImage}
+          gallery={this.state.gallery}
+        />
         <GalleryList
           gallery={this.state.gallery}
           updateLikes={this.updateLikes}

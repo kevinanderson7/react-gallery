@@ -24,7 +24,7 @@ const pool = require('../modules/pool.js');
 
 //START of STRETCH:
 router.get('/', (req, res) => {
-  const sqlText = `SELECT * FROM gallery_items ORDER BY id DESC;`;
+  const sqlText = `SELECT * FROM gallery_items ORDER BY id ASC;`;
   pool
     .query(sqlText)
     .then((result) => {
@@ -44,14 +44,9 @@ router.post('/', (req, res) => {
   console.log('POST:', newImage);
 
   pool
-    .query(sqlText, [
-      newImage.rank,
-      newSong.artist,
-      newSong.track,
-      newSong.published,
-    ])
+    .query(sqlText, [newImage.path, newImage.description, newImage.likes])
     .then((result) => {
-      console.log(`Added song to the database`, newSong);
+      console.log(`Added image to the database`, newImage);
       res.sendStatus(201);
     })
     .catch((error) => {
