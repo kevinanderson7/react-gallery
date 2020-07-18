@@ -7,7 +7,7 @@ class GalleryList extends Component {
       <div>
         {this.props.gallery.map((item) => (
           <div className="galleryDiv" key={item.id}>
-            <GalleryItem item={item} />
+            <GalleryItem item={item} updateLikes={this.props.updateLikes} />
           </div>
         ))}
       </div>

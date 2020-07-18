@@ -19,7 +19,12 @@ class GalleryItem extends Component {
           <p onClick={this.handleClick} className="descriptionText">
             {this.props.item.description}
           </p>
-          <button onClick={this.handleClick} type="button">
+          <button
+            onClick={(event) => {
+              this.props.updateLikes(this.props.item.id);
+            }}
+            type="button"
+          >
             Love It!
           </button>
           <div className="likesDiv">{this.props.item.likes}</div>
@@ -33,7 +38,14 @@ class GalleryItem extends Component {
             alt={this.props.item.description}
             src={this.props.item.path}
           ></img>
-          <button type="button">Love It!</button>
+          <button
+            onClick={(event) => {
+              this.props.updateLikes(this.props.item.id);
+            }}
+            type="button"
+          >
+            Love It!
+          </button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
       );

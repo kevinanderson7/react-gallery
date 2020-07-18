@@ -30,17 +30,20 @@ class App extends Component {
       });
   }
 
-  render() {
-    // const displayGallery = this.state.gallery.map((item, index) => {
-    //   return (
-    //     <div className="galleryDiv" key={item.id}>
-    //       <img alt={item.description} src={item.path}></img>
-    //       <button type="button">Love This!</button>
-    //       <div className="likesDiv">{item.likes}</div>
-    //     </div>
-    //   );
-    // });
+  updateLikes = (id) => {
+    Axios({
+      method: 'PUT',
+      url: `/gallery/like/${id}`,
+    })
+      .then((response) => {
+        this.getGallery();
+      })
+      .catch((error) => {
+        console.log('error during PUT', error);
+      });
+  };
 
+  render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -49,7 +52,10 @@ class App extends Component {
         <br />
 
         {/* {displayGallery} */}
-        <GalleryList gallery={this.state.gallery} />
+        <GalleryList
+          gallery={this.state.gallery}
+          updateLikes={this.updateLikes}
+        />
 
         {/* <img src="images/goat_small.jpg" /> */}
       </div>
