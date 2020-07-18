@@ -25,8 +25,16 @@
     transform: rotate(360deg);
   }
 }
-
+.galleryDiv {
+  display: inline-block;
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+}
+.likesDiv {
+  display: block;
+}
 img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }

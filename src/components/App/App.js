@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
-import GalleryItem from '../GalleryItem/GalleryItem';
+// import GalleryItem from '../GalleryItem/GalleryItem';
 import Axios from 'axios';
 
 class App extends Component {
@@ -31,13 +31,15 @@ class App extends Component {
   }
 
   render() {
-    const displayGallery = this.state.gallery.map((item, index) => {
-      return (
-        <div key={item.id}>
-          <img src={item.path}></img> {item.likes}
-        </div>
-      );
-    });
+    // const displayGallery = this.state.gallery.map((item, index) => {
+    //   return (
+    //     <div className="galleryDiv" key={item.id}>
+    //       <img alt={item.description} src={item.path}></img>
+    //       <button type="button">Love This!</button>
+    //       <div className="likesDiv">{item.likes}</div>
+    //     </div>
+    //   );
+    // });
 
     return (
       <div className="App">
@@ -45,9 +47,10 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br />
-        {displayGallery}
-        {/* <GalleryList /> */}
-        <GalleryItem />
+
+        {/* {displayGallery} */}
+        <GalleryList gallery={this.state.gallery} />
+
         {/* <img src="images/goat_small.jpg" /> */}
       </div>
     );
