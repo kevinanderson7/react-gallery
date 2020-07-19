@@ -29,7 +29,7 @@ class GalleryItem extends Component {
           </button>
           <button
             onClick={(event) => {
-              this.props.deleteGalleryItem();
+              this.props.deleteGalleryItem(this.props.item.id);
             }}
             type="button"
           >
@@ -56,7 +56,7 @@ class GalleryItem extends Component {
           </button>
           <button
             onClick={(event) => {
-              this.props.deleteGalleryItem();
+              this.props.deleteGalleryItem(this.props.item.id);
             }}
             type="button"
           >

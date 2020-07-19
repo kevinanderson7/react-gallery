@@ -73,4 +73,22 @@ router.put('/like/:id', (req, res) => {
     });
 });
 
+router.delete('/delete/:id', (req, res) => {
+  let imageId = req.params.id;
+
+  let sqlText = '';
+
+  sqlText = `DELETE FROM "gallery_items" WHERE "id" = $1;`;
+
+  pool
+    .query(sqlText, [imageId])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

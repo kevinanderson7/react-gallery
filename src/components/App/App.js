@@ -43,8 +43,17 @@ class App extends Component {
       });
   };
 
-  deleteGalleryItem = () => {
-    console.log('deleting item');
+  deleteGalleryItem = (id) => {
+    axios({
+      method: 'DELETE',
+      url: `/gallery/delete/${id}`,
+    })
+      .then((response) => {
+        this.getGallery();
+      })
+      .catch((error) => {
+        console.log('error during DELETE', error);
+      });
   };
 
   postNewImage = (imageData) => {
