@@ -43,6 +43,10 @@ class App extends Component {
       });
   };
 
+  deleteGalleryItem = () => {
+    console.log('deleting item');
+  };
+
   postNewImage = (imageData) => {
     console.log('in postNewImage:', imageData);
     axios({
@@ -74,6 +78,7 @@ class App extends Component {
         <GalleryList
           gallery={this.state.gallery}
           updateLikes={this.updateLikes}
+          deleteGalleryItem={this.deleteGalleryItem}
         />
 
         {/* <img src="images/goat_small.jpg" /> */}

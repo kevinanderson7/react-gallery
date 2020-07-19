@@ -27,6 +27,14 @@ class GalleryItem extends Component {
           >
             Love It!
           </button>
+          <button
+            onClick={(event) => {
+              this.props.deleteGalleryItem();
+            }}
+            type="button"
+          >
+            Delete
+          </button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
       );
@@ -45,6 +53,14 @@ class GalleryItem extends Component {
             type="button"
           >
             Love It!
+          </button>
+          <button
+            onClick={(event) => {
+              this.props.deleteGalleryItem();
+            }}
+            type="button"
+          >
+            Delete
           </button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
