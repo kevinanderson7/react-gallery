@@ -1,3 +1,8 @@
+
+--DATABASE name
+"react_gallery"
+
+
 -- create table
 CREATE TABLE "gallery_items" (
 	"id" SERIAL PRIMARY KEY,

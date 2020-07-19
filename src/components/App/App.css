@@ -38,3 +38,7 @@ img {
   width: 200px;
   height: 200px;
 }
+
+body {
+  background-color: rgb(224, 220, 220);
+}
