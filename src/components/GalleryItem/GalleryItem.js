@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 
 class GalleryItem extends Component {
   state = {
@@ -19,22 +20,26 @@ class GalleryItem extends Component {
           <p onClick={this.handleClick} className="descriptionText">
             {this.props.item.description}
           </p>
-          <button
+          <Button
+            variant="contained"
+            color="primary"
             onClick={(event) => {
               this.props.updateLikes(this.props.item.id);
             }}
             type="button"
           >
             Love It!
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
             onClick={(event) => {
               this.props.deleteGalleryItem(this.props.item.id);
             }}
             type="button"
           >
             Delete
-          </button>
+          </Button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
       );
@@ -46,22 +51,26 @@ class GalleryItem extends Component {
             alt={this.props.item.description}
             src={this.props.item.path}
           ></img>
-          <button
+          <Button
+            variant="contained"
+            color="primary"
             onClick={(event) => {
               this.props.updateLikes(this.props.item.id);
             }}
             type="button"
           >
             Love It!
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
             onClick={(event) => {
               this.props.deleteGalleryItem(this.props.item.id);
             }}
             type="button"
           >
             Delete
-          </button>
+          </Button>
           <div className="likesDiv">{this.props.item.likes}</div>
         </div>
       );
